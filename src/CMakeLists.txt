@@ -1,4 +1,6 @@
-add_library(utils fibonacci.cpp)
+add_library(utils
+        fibonacci.cpp
+        number.cpp)
 
 add_library(problems
         problem001.cpp

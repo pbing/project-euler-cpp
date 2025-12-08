@@ -1,7 +1,7 @@
 #include <catch2/catch_test_macros.hpp>
-#include <limits>
 
 #include "fibonacci.hpp"
+#include "number.hpp"
 #include "problem001.hpp"
 #include "problem002.hpp"
 
@@ -23,6 +23,13 @@ TEST_CASE("Utils") {
     REQUIRE(fibonacci(91) < fibonacci(92));                  // M
     REQUIRE(fibonacci(92) < fibonacci(93));                  // B
     REQUIRE(fibonacci(93) == fibonacci(91) + fibonacci(92)); // S
+  }
+  SECTION("isPalindrome") {
+    REQUIRE(isPalindrome(0U));
+    REQUIRE(isPalindrome(1U));
+    REQUIRE(isPalindrome(1234554321U));
+    REQUIRE_FALSE(isPalindrome(12U));
+    REQUIRE_FALSE(isPalindrome(1234567890U));
   }
 }
 
