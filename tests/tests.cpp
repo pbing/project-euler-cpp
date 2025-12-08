@@ -1,16 +1,28 @@
 #include <catch2/catch_test_macros.hpp>
+#include <limits>
 
 #include "fibonacci.hpp"
 #include "problem001.hpp"
 #include "problem002.hpp"
 
+/* https://blog.wingman-sw.com/tdd-guided-by-zombies
+ Z – Zero
+ O – One
+ M – Many (or More complex)
+ B – Boundary Behaviors
+ I – Interface definition
+ E – Exercise Exceptional behavior
+ S – Simple Scenarios, Simple Solutions
+*/
 TEST_CASE("Utils") {
   SECTION("fibonacci") {
-    REQUIRE(fibonacci(0) == 0ULL);
-    REQUIRE(fibonacci(1) == 1ULL);
-    REQUIRE(fibonacci(2) == 1ULL);
-    REQUIRE(fibonacci(3) == 2ULL);
-    REQUIRE(fibonacci(10) == fibonacci(8) + fibonacci(9));
+    REQUIRE(fibonacci(0) == 0ULL);                           // Z
+    REQUIRE(fibonacci(1) == 1ULL);                           // O
+    REQUIRE(fibonacci(2) == 1ULL);                           // M
+    REQUIRE(fibonacci(3) == 2ULL);                           // M
+    REQUIRE(fibonacci(91) < fibonacci(92));                  // M
+    REQUIRE(fibonacci(92) < fibonacci(93));                  // B
+    REQUIRE(fibonacci(93) == fibonacci(91) + fibonacci(92)); // S
   }
 }
 
