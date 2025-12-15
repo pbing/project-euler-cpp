@@ -1,3 +1,3 @@
 #pragma once
 
-bool isPalindrome(const unsigned n);
+bool isPalindrome(const int n);

@@ -1,8 +1,8 @@
 #include "fibonacci.hpp"
 
-unsigned long long fibonacci(unsigned n) {
-  auto a = 0ULL;
-  auto b = 1ULL;
+long fibonacci(int n) {
+  auto a = 0L;
+  auto b = 1L;
 
   while (n--) {
     auto c = a + b;

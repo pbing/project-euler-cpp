@@ -2,17 +2,17 @@
 
 namespace {
 
-unsigned reverseDigits(const unsigned n) {
+int reverseDigits(const int n) {
   auto q{n};
-  auto y{0U};
+  auto y{0};
   do {
-    auto r = q % 10U;
-    q /= 10U;
-    y = 10U * y + r;
-  } while (q != 0U);
+    auto r = q % 10;
+    q /= 10;
+    y = 10 * y + r;
+  } while (q != 0);
   return y;
 }
 
 } // namespace
 
-bool isPalindrome(const unsigned n) { return n == reverseDigits(n); }
+bool isPalindrome(const int n) { return n == reverseDigits(n); }

@@ -1,3 +1,3 @@
 #pragma once
 
-unsigned long long fibonacci(unsigned n);
+long fibonacci(int n);
