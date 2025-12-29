@@ -1,6 +1,7 @@
 add_library(utils
         fibonacci.cpp
-        number.cpp)
+        number.cpp
+        prime.cpp)
 
 add_library(problems
         problem001.cpp

@@ -1,3 +1,3 @@
 #pragma once
 
-int problem001(const int n);
+unsigned problem001(const unsigned n);

@@ -1,7 +1,9 @@
 #include <catch2/catch_test_macros.hpp>
+#include <catch2/benchmark/catch_benchmark.hpp>
 
 #include "fibonacci.hpp"
 #include "number.hpp"
+#include "prime.hpp"
 #include "problem001.hpp"
 #include "problem002.hpp"
 
@@ -25,12 +27,40 @@ TEST_CASE("Utils") {
     REQUIRE(fibonacci(92) == fibonacci(90) + fibonacci(91)); // S
     REQUIRE(fibonacci(92) > 0L);
   }
+
   SECTION("isPalindrome") {
     REQUIRE(isPalindrome(0));
     REQUIRE(isPalindrome(1));
     REQUIRE(isPalindrome(1234554321));
     REQUIRE_FALSE(isPalindrome(12));
     REQUIRE_FALSE(isPalindrome(1234567890));
+  }
+
+  SECTION("isPrime") {
+    REQUIRE_FALSE(isPrime(0));
+    REQUIRE_FALSE(isPrime(1));
+    REQUIRE(isPrime(2));
+    REQUIRE(isPrime(3));
+    REQUIRE_FALSE(isPrime(4));
+    REQUIRE(isPrime(5));
+    REQUIRE_FALSE(isPrime(6));
+    REQUIRE(isPrime(7));
+    REQUIRE_FALSE(isPrime(8));
+    REQUIRE_FALSE(isPrime(9));
+    REQUIRE_FALSE(isPrime(10));
+    REQUIRE_FALSE(isPrime(0x10000));
+    REQUIRE(isPrime(0x10001));
+    REQUIRE(isPrime(0x7fffffff));
+    REQUIRE_FALSE(isPrime(0xfffffffa));
+    REQUIRE(isPrime(0xfffffffb));
+    REQUIRE_FALSE(isPrime(0xfffffffc));
+    REQUIRE_FALSE(isPrime(0xfffffffd));
+    REQUIRE_FALSE(isPrime(0xfffffffe));
+    REQUIRE_FALSE(isPrime(0xffffffff));
+
+    // BENCHMARK("isPrime(0x10001)") {
+    //   return (isPrime(0x10001));
+    // };
   }
 }
 
